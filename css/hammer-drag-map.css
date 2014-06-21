@@ -1,12 +1,8 @@
 @charset "UTF-8";
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
 
 .hammer-drag-map {
+  overflow: hidden;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -17,7 +13,6 @@ body {
   height: 320px;
   border: 1px solid black;
   background-color: black;
-  overflow: hidden;
 }
 
 .drag {
@@ -62,7 +57,7 @@ body {
 
 /*
  * --restrict のグラデーションは Android のようにドラッグ量に応じて色を濃くしたりはしていません。
- * 再現したい場合は @keyframes animation やドラッグ料に応じた濃さのクラスをそ作ってなんかがんばるなどしてください。
+ * 再現したい場合は @keyframes animation やドラッグ量に応じた濃さのクラスをそ作ってなんかがんばるなどしてください。
  */
 .shield__t--restrict {
   background-image: -webkit-gradient(radial, center top, 5, center top, 15,  from(rgba(255,255,255, .75)), to(rgba(255,255,255, 0)));
