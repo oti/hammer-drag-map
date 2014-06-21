@@ -20,11 +20,16 @@ var drag = {
         "x": -793,
         "y": -1280
     },
-    "rate": 1,
-    "extra": 25,
-    "restrict": true,
-    "bounce": true,
-    "transition": "transform .075s ease-in-out"
+    "transition"   : "transform .075s ease-in-out",
+    "extra"        : 25,
+    "bounce"       : true,
+    "restrict"     : true,
+    "restrictClass":{
+        "top"   : "shield__t--restrict",
+        "right" : "shield__r--restrict",
+        "bottom": "shield__b--restrict",
+        "left"  : "shield__l--restrict"
+    }
 };
 
 // 処理のかたまり
@@ -48,20 +53,19 @@ var dragMap = {
             // マップ座標移動
             // 実行場所によって _pos は drag.start だったり drag.end だったりする
 
-            // console.log(_translate);
-            // console.log(_pos);
+            // console.log(_pos, _translate);
 
             dragMap.dom.$drag.css({
                 "transition": _transitions,
-                "transform" : "translate3d("+ _pos.x*drag.rate +"px, "+ _pos.y*drag.rate +"px, 0)"
+                "transform" : "translate3d("+ _pos.x +"px, "+ _pos.y +"px, 0)"
             });
         },
         "removeRestrict": function(){
             // ドラッグ限界のクラスを消すだけの清掃業者
-            dragMap.dom.$tp.removeClass("shield__t--restrict");
-            dragMap.dom.$rt.removeClass("shield__r--restrict");
-            dragMap.dom.$bt.removeClass("shield__b--restrict");
-            dragMap.dom.$lt.removeClass("shield__l--restrict");
+            dragMap.dom.$tp.removeClass(drag.restrictClass.top);
+            dragMap.dom.$rt.removeClass(drag.restrictClass.right);
+            dragMap.dom.$bt.removeClass(drag.restrictClass.bottom);
+            dragMap.dom.$lt.removeClass(drag.restrictClass.left);
         }
     },
     "ctrl": {
@@ -153,33 +157,33 @@ var dragMap = {
             // 上側
             if(drag.start.y > drag.max.y + drag.extra){
                 drag.start.y = drag.max.y + drag.extra;
-                dragMap.dom.$tp.addClass("shield__t--restrict");
+                dragMap.dom.$tp.addClass(drag.restrictClass.top);
             } else {
-                dragMap.dom.$tp.removeClass("shield__t--restrict");
+                dragMap.dom.$tp.removeClass(drag.restrictClass.top);
             }
 
             // 右側
             if(drag.start.x < drag.min.x - drag.extra){
                 drag.start.x = drag.min.x - drag.extra;
-                dragMap.dom.$rt.addClass("shield__r--restrict");
+                dragMap.dom.$rt.addClass(drag.restrictClass.right);
             } else {
-                dragMap.dom.$rt.removeClass("shield__r--restrict");
+                dragMap.dom.$rt.removeClass(drag.restrictClass.right);
             }
 
             // 下側
             if(drag.start.y < drag.min.y - drag.extra){
                 drag.start.y = drag.min.y - drag.extra;
-                dragMap.dom.$bt.addClass("shield__b--restrict");
+                dragMap.dom.$bt.addClass(drag.restrictClass.bottom);
             } else {
-                dragMap.dom.$bt.removeClass("shield__b--restrict");
+                dragMap.dom.$bt.removeClass(drag.restrictClass.bottom);
             }
 
             // 左側
             if(drag.start.x > drag.max.x + drag.extra){
                 drag.start.x = drag.max.x + drag.extra;
-                dragMap.dom.$lt.addClass("shield__l--restrict");
+                dragMap.dom.$lt.addClass(drag.restrictClass.left);
             } else {
-                dragMap.dom.$lt.removeClass("shield__l--restrict");
+                dragMap.dom.$lt.removeClass(drag.restrictClass.left);
             }
         },
         "init": function(){
