@@ -1,35 +1,3 @@
-// UA判定
-var _ua = (function(){
-    return {
-        Gecko:'MozAppearance' in document.documentElement.style,
-        Presto:window.opera,
-        Blink:window.chrome,
-        Webkit:typeof window.chrome == "undefined" && 'WebkitAppearance' in document.documentElement.style
-    }
-})();
-
-var TRANSITION_PROP = '';
-var TRANSITION_VAL = '';
-var TRANSFORM_PROP = '';
-
-if(_ua.Gecko){
-    TRANSITION_PROP = '-moz-transition';
-    TRANSITION_VAL  = '-moz-transform .075s ease-in-out';
-    TRANSFORM_PROP  = '-moz-transform';
-} else if(_ua.Presto){
-    TRANSITION_PROP = '-o-transition';
-    TRANSITION_VAL  = '-o-transform .075s ease-in-out';
-    TRANSFORM_PROP  = '-o-transform';
-} else if(_ua.Webkit || _ua.Blink){
-    TRANSITION_PROP = '-webkit-transition';
-    TRANSITION_VAL  = '-webkit-transform .075s ease-in-out';
-    TRANSFORM_PROP  = '-webkit-transform';
-} else {
-    TRANSITION_PROP = 'transition';
-    TRANSITION_VAL  = 'transform .075s ease-in-out';
-    TRANSFORM_PROP  = 'transform';
-}
-
 // 必要な値たち
 var drag = {
     'mapSize': {
@@ -56,11 +24,11 @@ var drag = {
     'extra': 25,
     'restrict': true,
     'bounce': true,
+    'transition': 'transform .075s ease-in-out'
 };
 
 // 処理のかたまり
 var dragMap = {
-    // 必要要素
     'dom': {
         $drag: $('.drag'),
         $tp: $('.shield__t'),
@@ -68,8 +36,6 @@ var dragMap = {
         $bt: $('.shield__b'),
         $lt: $('.shield__l'),
     },
-
-    // 表示系
     'view': {
         'setMap': function(){
             // もし背景画像を JS 側で操作したい場合はここに書くといいかも
@@ -78,18 +44,17 @@ var dragMap = {
                 'height': drag.mapSize.y
             });
         },
-        // マップ座標移動
         'translate': function(_pos, _transitions){
+            // マップ座標移動
             // 実行場所によって _pos は drag.start だったり drag.end だったりする
-
-            var _translate = {};
-                _translate[TRANSITION_PROP] = _transitions;
-                _translate[TRANSFORM_PROP]  = 'translate3d('+ _pos.x*drag.rate +'px, '+ _pos.y*drag.rate +'px, 0)';
 
             // console.log(_translate);
             // console.log(_pos);
 
-            dragMap.dom.$drag.css(_translate);
+            dragMap.dom.$drag.css({
+                'transition': _transitions,
+                'transform' : 'translate3d('+ _pos.x*drag.rate +'px, '+ _pos.y*drag.rate +'px, 0)'
+            });
         },
         'removeRestrict': function(){
             // ドラッグ限界のクラスを消すだけの清掃業者
@@ -99,7 +64,6 @@ var dragMap = {
             dragMap.dom.$lt.removeClass('shield__l--restrict');
         }
     },
-
     'ctrl': {
         'dragEventsOn': function(){
             // 対象要素に hammer.js を適応
@@ -156,7 +120,7 @@ var dragMap = {
             }
 
             // transition つきで再配置
-            dragMap.view.translate(drag.end, TRANSITION_VAL);
+            dragMap.view.translate(drag.end, drag.transition);
         },
         'bounce': function(drag){
             // オーバードラッグからの復帰
