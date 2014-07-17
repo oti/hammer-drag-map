@@ -35,7 +35,7 @@ var drag = {
 // 処理のかたまり
 var dragMap = {
     dom: {
-        $drag: $(".drag"),
+        $map: $("#map"),
         $tp: $(".shield__t"),
         $rt: $(".shield__r"),
         $bt: $(".shield__b"),
@@ -44,7 +44,7 @@ var dragMap = {
     view: {
         setMap: function(){
             // もし背景画像を JS 側で操作したい場合はここに書くといいかも
-            dragMap.dom.$drag.css({
+            dragMap.dom.$map.css({
                 "width" : drag.mapSize.x,
                 "height": drag.mapSize.y
             });
@@ -55,7 +55,7 @@ var dragMap = {
 
             // console.log(_pos, _translate);
 
-            dragMap.dom.$drag.css({
+            dragMap.dom.$map.css({
                 "transition": _trans,
                 "transform" : "translate3d("+ _pos.x +"px, "+ _pos.y +"px, 0)"
             });
@@ -71,7 +71,7 @@ var dragMap = {
     ctrl: {
         dragEventsOn: function(){
             // 対象要素に hammer.js を適応
-            dragMap.dom.$drag.hammer().on({
+            dragMap.dom.$map.hammer().on({
                 "scroll"   : dragMap.ctrl.preventEv,
                 "touchmove": dragMap.ctrl.preventEv,
                 "dragstart": dragMap.ctrl.dragStart,
