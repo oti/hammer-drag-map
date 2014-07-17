@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 
-.hammer-drag-map {
+#hammer-drag-map {
   overflow: hidden;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -15,7 +15,7 @@
   background-color: black;
 }
 
-.drag {
+#map {
   background-image: url(../img/map.gif);
   background-position: 50% 50%;
   background-repeat: repeat;
