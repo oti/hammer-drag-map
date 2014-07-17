@@ -49,14 +49,14 @@ var dragMap = {
                 "height": drag.mapSize.y
             });
         },
-        translate: function(_pos, _transitions){
+        translate: function(_pos, _trans){
             // マップ座標移動
             // 実行場所によって _pos は drag.start だったり drag.end だったりする
 
             // console.log(_pos, _translate);
 
             dragMap.dom.$drag.css({
-                "transition": _transitions,
+                "transition": _trans,
                 "transform" : "translate3d("+ _pos.x +"px, "+ _pos.y +"px, 0)"
             });
         },
