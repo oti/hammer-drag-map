@@ -1,6 +1,6 @@
 // 必要な値たち
-var drag = {
-    mapSize: {
+var map = {
+    size: {
         x: 1113,
         y: 1600,
     },
@@ -45,13 +45,13 @@ var dragMap = {
         setMap: function(){
             // もし背景画像を JS 側で操作したい場合はここに書くといいかも
             dragMap.dom.$map.css({
-                "width" : drag.mapSize.x,
-                "height": drag.mapSize.y
+                "width" : map.size.x,
+                "height": map.size.y
             });
         },
         translate: function(_pos, _trans){
             // マップ座標移動
-            // 実行場所によって _pos は drag.start だったり drag.end だったりする
+            // 実行場所によって _pos は map.start だったり map.end だったりする
 
             // console.log(_pos, _translate);
 
@@ -62,10 +62,10 @@ var dragMap = {
         },
         removeRestrict: function(){
             // ドラッグ限界のクラスを消すだけの清掃業者
-            dragMap.dom.$tp.removeClass(drag.restrictClass.top);
-            dragMap.dom.$rt.removeClass(drag.restrictClass.right);
-            dragMap.dom.$bt.removeClass(drag.restrictClass.bottom);
-            dragMap.dom.$lt.removeClass(drag.restrictClass.left);
+            dragMap.dom.$tp.removeClass(map.restrictClass.top);
+            dragMap.dom.$rt.removeClass(map.restrictClass.right);
+            dragMap.dom.$bt.removeClass(map.restrictClass.bottom);
+            dragMap.dom.$lt.removeClass(map.restrictClass.left);
         }
     },
     ctrl: {
@@ -86,104 +86,104 @@ var dragMap = {
         dragStart: function(ev){
             // ドラッグ開始時に .drag 内のイベントを発火させない
             ev.preventDefault();
-            dragMap.view.translate(drag.start, "none");
+            dragMap.view.translate(map.start, "none");
         },
         dragging: function(ev){
             // ぐりぐり動かす時に初期化
-            drag.start.x = drag.end.x;
-            drag.start.y = drag.end.y;
+            map.start.x = map.end.x;
+            map.start.y = map.end.y;
 
             // ドラッグした分を取得
-            drag.start.x += parseInt(ev.gesture.deltaX);
-            drag.start.y += parseInt(ev.gesture.deltaY);
+            map.start.x += parseInt(ev.gesture.deltaX);
+            map.start.y += parseInt(ev.gesture.deltaY);
 
             // ドラッグ中の座標チェック（ドラッグした方向の正負なので注意）
-            // console.log(drag.start.x, drag.start.y);
+            // console.log(map.start.x, map.start.y);
 
-            if(drag.restrict){
-                dragMap.ctrl.restrict(drag);
+            if(map.restrict){
+                dragMap.ctrl.restrict(map);
             }
 
             // グリグリしてる時は transition なし
-            dragMap.view.translate(drag.start, "none");
+            dragMap.view.translate(map.start, "none");
         },
         dragEnd: function(ev){
             // 動かし終わった時の値を取っておく
-            drag.end.x = drag.start.x;
-            drag.end.y = drag.start.y;
-            // console.log(drag.end);
+            map.end.x = map.start.x;
+            map.end.y = map.start.y;
+            // console.log(map.end);
 
             // ドラッグ制限をかけていたら、ドラッグ終了時にリミットのクラスを消す
-            if(drag.restrict){
+            if(map.restrict){
                 dragMap.view.removeRestrict();
             }
 
             // オーバードラッグを戻す
-            if(drag.bounce){
-                dragMap.ctrl.bounce(drag);
+            if(map.bounce){
+                dragMap.ctrl.bounce(map);
             }
 
             // transition つきで再配置
-            dragMap.view.translate(drag.end, drag.transition);
+            dragMap.view.translate(map.end, map.transition);
         },
-        bounce: function(drag){
+        bounce: function(map){
             // オーバードラッグからの復帰
-            // オーバードラッグの大きさは drag.extra で指定
+            // オーバードラッグの大きさは map.extra で指定
 
             // 上側
-            if(drag.end.y > drag.max.y){
-                drag.end.y = drag.max.y;
+            if(map.end.y > map.max.y){
+                map.end.y = map.max.y;
             }
 
             // 右側
-            if(drag.end.x < drag.min.x){
-                drag.end.x = drag.min.x;
+            if(map.end.x < map.min.x){
+                map.end.x = map.min.x;
             }
 
             // 下側
-            if(drag.end.y < drag.min.y){
-                drag.end.y = drag.min.y;
+            if(map.end.y < map.min.y){
+                map.end.y = map.min.y;
             }
 
             // 左側
-            if(drag.end.x > drag.max.x){
-                drag.end.x = drag.max.x;
+            if(map.end.x > map.max.x){
+                map.end.x = map.max.x;
             }
         },
-        restrict: function(drag){
+        restrict: function(map){
             // ドラッグ量の制限
             // bounce が true だった時、extra 分のオーバードラッグを許容する
 
             // 上側
-            if(drag.start.y > drag.max.y + drag.extra){
-                drag.start.y = drag.max.y + drag.extra;
-                dragMap.dom.$tp.addClass(drag.restrictClass.top);
+            if(map.start.y > map.max.y + map.extra){
+                map.start.y = map.max.y + map.extra;
+                dragMap.dom.$tp.addClass(map.restrictClass.top);
             } else {
-                dragMap.dom.$tp.removeClass(drag.restrictClass.top);
+                dragMap.dom.$tp.removeClass(map.restrictClass.top);
             }
 
             // 右側
-            if(drag.start.x < drag.min.x - drag.extra){
-                drag.start.x = drag.min.x - drag.extra;
-                dragMap.dom.$rt.addClass(drag.restrictClass.right);
+            if(map.start.x < map.min.x - map.extra){
+                map.start.x = map.min.x - map.extra;
+                dragMap.dom.$rt.addClass(map.restrictClass.right);
             } else {
-                dragMap.dom.$rt.removeClass(drag.restrictClass.right);
+                dragMap.dom.$rt.removeClass(map.restrictClass.right);
             }
 
             // 下側
-            if(drag.start.y < drag.min.y - drag.extra){
-                drag.start.y = drag.min.y - drag.extra;
-                dragMap.dom.$bt.addClass(drag.restrictClass.bottom);
+            if(map.start.y < map.min.y - map.extra){
+                map.start.y = map.min.y - map.extra;
+                dragMap.dom.$bt.addClass(map.restrictClass.bottom);
             } else {
-                dragMap.dom.$bt.removeClass(drag.restrictClass.bottom);
+                dragMap.dom.$bt.removeClass(map.restrictClass.bottom);
             }
 
             // 左側
-            if(drag.start.x > drag.max.x + drag.extra){
-                drag.start.x = drag.max.x + drag.extra;
-                dragMap.dom.$lt.addClass(drag.restrictClass.left);
+            if(map.start.x > map.max.x + map.extra){
+                map.start.x = map.max.x + map.extra;
+                dragMap.dom.$lt.addClass(map.restrictClass.left);
             } else {
-                dragMap.dom.$lt.removeClass(drag.restrictClass.left);
+                dragMap.dom.$lt.removeClass(map.restrictClass.left);
             }
         },
         init: function(){
@@ -191,7 +191,7 @@ var dragMap = {
             dragMap.view.setMap();
 
             // マップの初期座標を設定
-            dragMap.view.translate(drag.start, "none");
+            dragMap.view.translate(map.start, "none");
 
             // マップに Hammer.js のドラッグイベントをはる
             dragMap.ctrl.dragEventsOn();
