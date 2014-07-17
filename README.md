@@ -30,8 +30,8 @@ hammer.jsとjquery.hammer.jsが１つになった[jquery.hammer-full.js](https:/
 </head>
 <body>
 
-<div class="hammer-drag-map">
-    <div class="drag">
+<div id="hammer-drag-map">
+    <div id="map">
         <!-- some map icon elements -->
     </div>
     <div class="shield shield__t"></div>
@@ -49,8 +49,8 @@ jqueryとjquery.hammer-full.jsを``<head>``内、実装スクリプトのhammer-
 
 
 ```
-<div class="hammer-drag-map">             // 包含要素です。地図がこの内部に置かれます。
-    <div class="drag">                    // 地図画像が背景として差し込まれます。ドラッグイベントを貼る要素です。
+<div id="hammer-drag-map">             	// 包含要素です。地図がこの内部に置かれます。
+    <div id="drag">                    	// 地図画像が背景として差し込まれます。ドラッグイベントを貼る要素です。
         <!-- some map icon elements -->   // もし地図内にランドマークやその他の要素を置きたい時は .drag 内に書きます。
     </div>
     <div class="shield shield__t"></div>  // .shieldは画面の上下左右の端にできる「触れない壁」となります。
