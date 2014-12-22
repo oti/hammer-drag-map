@@ -1,5 +1,5 @@
 {
-  "name": "yes",
+  "name": "hammer-drag-map.js build grunt task",
   "version": "1.0.1",
   "description": "make draggable map(element) with jquery.hammer.js",
   "main": "index.html",
