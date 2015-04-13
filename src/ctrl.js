@@ -7,7 +7,7 @@
                     "touchmove": ctrl.preventEv,
                     "dragstart": ctrl.dragStart,
                     "drag"     : ctrl.dragging,
-                    "dragend"  : ctrl.dragEnd,
+                    "dragend"  : ctrl.dragEnd
                 });
             },
             preventEv: function(ev){

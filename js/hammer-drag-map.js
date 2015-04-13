@@ -25,7 +25,7 @@
             extra        : 25,
             bounce       : true,
             restrict     : true,
-            restrictMode : "--restrict",
+            restrictSuffix : "--restrict",
             dragmapName: "dragmap",
             shieldName: {
                 top   : "shield__t",
@@ -50,12 +50,11 @@
 
 
         var restrictClass = {
-            top: map.shieldName.top + map.restrictMode,
-            right: map.shieldName.right + map.restrictMode,
-            bottom: map.shieldName.bottom + map.restrictMode,
-            left: map.shieldName.left + map.restrictMode,
+            top: map.shieldName.top + map.restrictSuffix,
+            right: map.shieldName.right + map.restrictSuffix,
+            bottom: map.shieldName.bottom + map.restrictSuffix,
+            left: map.shieldName.left + map.restrictSuffix,
         };
-        console.log(restrictClass)
 
         var view = {
             setMap: function(){
@@ -92,7 +91,7 @@
                     "touchmove": ctrl.preventEv,
                     "dragstart": ctrl.dragStart,
                     "drag"     : ctrl.dragging,
-                    "dragend"  : ctrl.dragEnd,
+                    "dragend"  : ctrl.dragEnd
                 });
             },
             preventEv: function(ev){

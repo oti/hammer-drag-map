@@ -21,7 +21,7 @@
 
 /*
  * .shield はドラッグ可能エリアに対する壁にもなります。
- * もし .drag の隅々までドラッグ可能にしたい場合は pointer-events: none; を付け加えてください。
+ * もし .dragmap の隅々までドラッグ可能にしたい場合は pointer-events: none; を付け加えてください。
  */
 .shield {
   position: absolute;
