@@ -1,10 +1,8 @@
 @charset "UTF-8";
 
-
-#hammer-drag-map {
+#map {
   overflow: hidden;
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
@@ -15,7 +13,7 @@
   background-color: black;
 }
 
-#map {
+#hammer-drag-map {
   background-image: url(../img/map.gif);
   background-position: 50% 50%;
   background-repeat: repeat;
@@ -62,27 +60,23 @@
 .shield__t--restrict {
   background-image: -webkit-gradient(radial, center top, 5, center top, 15,  from(rgba(255,255,255, .75)), to(rgba(255,255,255, 0)));
   background-image: -webkit-radial-gradient(center top, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
-  background-image: -moz-radial-gradient(center top, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
   background-image: radial-gradient(center top, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
 }
 
 .shield__r--restrict {
   background-image: -webkit-gradient(radial, right center, 5, right center, 15,  from(rgba(255,255,255, .75)), to(rgba(255,255,255, 0)));
   background-image: -webkit-radial-gradient(right center, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
-  background-image: -moz-radial-gradient(right center, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
   background-image: radial-gradient(right center, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
 }
 
 .shield__b--restrict {
   background-image: -webkit-gradient(radial, center bottom, 5, center bottom, 15,  from(rgba(255,255,255, .75)), to(rgba(255,255,255, 0)));
   background-image: -webkit-radial-gradient(center bottom, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
-  background-image: -moz-radial-gradient(center bottom, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
   background-image: radial-gradient(center bottom, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
 }
 
 .shield__l--restrict {
   background-image: -webkit-gradient(radial, left center, 5, left center, 15,  from(rgba(255,255,255, .75)), to(rgba(255,255,255, 0)));
   background-image: -webkit-radial-gradient(left center, ellipse farthest-side, rgba(255,255,255, .75), rgba(0,48,0, 0));
-  background-image: -moz-radial-gradient(left center, ellipse farthest-side, rgba(255,255,255, .75), rgba(0,48,0, 0));
   background-image: radial-gradient(left center, ellipse farthest-side, rgba(255,255,255, .75), rgba(0,48,0, 0));
 }

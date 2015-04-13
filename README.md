@@ -6,7 +6,7 @@ hammer-drag-map.jsは要素内にドラッグできる地図などを作成す�
 
 ## 必要ライブラリ
 
-+ jQuery v1.11.0 or v2.1.0
++ jQuery v1.11.0 or v2.1.3
 + hammer.js
 + jquery.hammer.js
 
@@ -25,13 +25,13 @@ hammer.jsとjquery.hammer.jsが１つになった[jquery.hammer-full.js](https:/
 
 <link rel="stylesheet" href="css/hammer-drag-map.css" media="screen">
 
-<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery-2.1.2.min.js"></script>
 <script src="js/jquery.hammer-full.min.js"></script>
 </head>
 <body>
 
-<div id="hammer-drag-map">
-    <div id="map">
+<div id="map">
+    <div id="hammer-drag-map">
         <!-- some map icon elements -->
     </div>
     <div class="shield shield__t"></div>
