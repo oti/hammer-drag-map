@@ -16,13 +16,13 @@
             extra        : 25,
             bounce       : true,
             restrict     : true,
-            restrictName : "__restrict",
+            restrictName : "_restrict",
             dragmapName  : "dragmap",
             shieldName   : {
-                top   : "_t",
-                right : "_r",
-                bottom: "_b",
-                left  : "_l"
+                top   : "__t",
+                right : "__r",
+                bottom: "__b",
+                left  : "__l"
             }
         };
 

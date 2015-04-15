@@ -21,25 +21,25 @@
   height: 320px;
 }
 
-.shield._t {
+.shield.__t {
   top: 0;
   left: 0;
   height: 15px;
 }
 
-.shield._r {
+.shield.__r {
   top: 0;
   right: 0;
   width: 15px;
 }
 
-.shield._b {
+.shield.__b {
   bottom: 0;
   left: 0;
   height: 15px;
 }
 
-.shield._l {
+.shield.__l {
   top: 0;
   left: 0;
   width: 15px;
@@ -49,25 +49,25 @@
  * --restrict のグラデーションは Android のようにドラッグ量に応じて色を濃くしたりはしていません。
  * 再現したい場合は @keyframes animation やドラッグ量に応じた濃さのクラスをそ作ってなんかがんばるなどしてください。
  */
-.shield._t.__restrict {
+.shield.__t._restrict {
   background-image: -webkit-gradient(radial, center top, 5, center top, 15,  from(rgba(255,255,255, .75)), to(rgba(255,255,255, 0)));
   background-image: -webkit-radial-gradient(center top, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
   background-image: radial-gradient(center top, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
 }
 
-.shield._r.__restrict {
+.shield.__r._restrict {
   background-image: -webkit-gradient(radial, right center, 5, right center, 15,  from(rgba(255,255,255, .75)), to(rgba(255,255,255, 0)));
   background-image: -webkit-radial-gradient(right center, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
   background-image: radial-gradient(right center, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
 }
 
-.shield._b.__restrict {
+.shield.__b._restrict {
   background-image: -webkit-gradient(radial, center bottom, 5, center bottom, 15,  from(rgba(255,255,255, .75)), to(rgba(255,255,255, 0)));
   background-image: -webkit-radial-gradient(center bottom, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
   background-image: radial-gradient(center bottom, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
 }
 
-.shield._l.__restrict {
+.shield.__l._restrict {
   background-image: -webkit-gradient(radial, left center, 5, left center, 15,  from(rgba(255,255,255, .75)), to(rgba(255,255,255, 0)));
   background-image: -webkit-radial-gradient(left center, ellipse farthest-side, rgba(255,255,255, .75), rgba(0,48,0, 0));
   background-image: radial-gradient(left center, ellipse farthest-side, rgba(255,255,255, .75), rgba(0,48,0, 0));

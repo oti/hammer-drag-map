@@ -31,10 +31,10 @@ hammer-drag-map.jsは要素内にドラッグできる地図などを作成す�
     &lt;div class="dragmap"&gt;
         &lt;!-- some map icon elements --&gt;
     &lt;/div&gt;
-    &lt;div class="shield _t"&gt;&lt;/div&gt;
-    &lt;div class="shield _r"&gt;&lt;/div&gt;
-    &lt;div class="shield _b"&gt;&lt;/div&gt;
-    &lt;div class="shield _l"&gt;&lt;/div&gt;
+    &lt;div class="shield __t"&gt;&lt;/div&gt;
+    &lt;div class="shield __r"&gt;&lt;/div&gt;
+    &lt;div class="shield __b"&gt;&lt;/div&gt;
+    &lt;div class="shield __l"&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;script&gt;
@@ -55,10 +55,10 @@ hammer-drag-map.jsは要素内にドラッグできる地図などを作成す�
     &lt;div class="dragmap"&gt;                // 地図画像が背景として差し込まれます。ドラッグイベントを貼る要素です。
         &lt;!-- some map icon elements --&gt;  // もし地図内にランドマークやその他の要素を置きたい時は .dragmap 内に書きます。
     &lt;/div&gt;
-    &lt;div class="shield _t"&gt;&lt;/div&gt; // .shieldは画面の上下左右の端にできる「触れない壁」となります。
-    &lt;div class="shield _r"&gt;&lt;/div&gt; // 地図の端でドラッグできないようにするためのものです。
-    &lt;div class="shield _b"&gt;&lt;/div&gt; // サイズはCSSで変更できます。
-    &lt;div class="shield _l"&gt;&lt;/div&gt; // 地図がドラッグ限界に達した時にグラデーションを出す要素でもあります。
+    &lt;div class="shield __t"&gt;&lt;/div&gt; // .shieldは画面の上下左右の端にできる「触れない壁」となります。
+    &lt;div class="shield __r"&gt;&lt;/div&gt; // 地図の端でドラッグできないようにするためのものです。
+    &lt;div class="shield __b"&gt;&lt;/div&gt; // サイズはCSSで変更できます。
+    &lt;div class="shield __l"&gt;&lt;/div&gt; // 地図がドラッグ限界に達した時にグラデーションを出す要素でもあります。
 &lt;/div&gt;</code></pre>
 
 ## 実行
@@ -98,13 +98,13 @@ var myOption = {
     extra        : 25,
     bounce       : true,
     restrict     : true,
-    restrictName : "__restrict",
+    restrictName : "_restrict",
     dragmapName: "dragmap",
     shieldName: {
-        top   : "_t",
-        right : "_r",
-        bottom: "_b",
-        left  : "_l"
+        top   : "__t",
+        right : "__r",
+        bottom: "__b",
+        left  : "__l"
     }
 };
 
@@ -198,7 +198,7 @@ $("#hammer-drag-map").hdm(myOption);
     <tr>
         <th colspan="2">restrictName</th>
         <td>限界ドラッグ時に`.shield`に付与するクラス名（string）</td>
-        <td>"__restrict"</td>
+        <td>"_restrict"</td>
     </tr>
     <tr>
         <th colspan="2">dragmapName</th>
@@ -209,22 +209,22 @@ $("#hammer-drag-map").hdm(myOption);
         <th rowspan="4">shieldName</th>
         <th>top</th>
         <td>地図の上辺の触れない部分の要素のクラス名（string）</td>
-        <td>"_t"</td>
+        <td>"__t"</td>
     </tr>
     <tr>
         <th>right</th>
         <td>地図の右辺の触れない部分の要素のクラス名（string）</td>
-        <td>"_r"</td>
+        <td>"__r"</td>
     </tr>
     <tr>
         <th>bottom</th>
         <td>地図の下辺の触れない部分の要素のクラス名（string）</td>
-        <td>"_b"</td>
+        <td>"__b"</td>
     </tr>
     <tr>
         <th>left</th>
         <td>地図の左辺の触れない部分の要素のクラス名（string）</td>
-        <td>"_l"</td>
+        <td>"__l"</td>
     </tr>
 </table>
 
@@ -288,10 +288,10 @@ $("#hammer-drag-map").hdm(myOption);
     &lt;div class="dragmap"&gt;
         &lt;!-- some map icon elements --&gt;
     &lt;/div&gt;
-    &lt;div class="shield _t"&gt;&lt;/div&gt;
-    &lt;div class="shield _r"&gt;&lt;/div&gt;
-    &lt;div class="shield _b"&gt;&lt;/div&gt;
-    &lt;div class="shield _l"&gt;&lt;/div&gt;
+    &lt;div class="shield __t"&gt;&lt;/div&gt;
+    &lt;div class="shield __r"&gt;&lt;/div&gt;
+    &lt;div class="shield __b"&gt;&lt;/div&gt;
+    &lt;div class="shield __l"&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;div id="anotherMap"&gt;

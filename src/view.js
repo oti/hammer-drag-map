@@ -25,9 +25,9 @@
             },
             removeRestrict: function(){
                 // ドラッグ限界のクラスを消すだけの清掃業者
-                shield.$tp.removeClass(restrictName);
-                shield.$rt.removeClass(restrictName);
-                shield.$bt.removeClass(restrictName);
-                shield.$lt.removeClass(restrictName);
+                shield.$tp.removeClass(map.restrictName);
+                shield.$rt.removeClass(map.restrictName);
+                shield.$bt.removeClass(map.restrictName);
+                shield.$lt.removeClass(map.restrictName);
             }
         };

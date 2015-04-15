@@ -17,13 +17,13 @@
             extra        : 25,
             bounce       : true,
             restrict     : true,
-            restrictName : "__restrict",
+            restrictName : "_restrict",
             dragmapName  : "dragmap",
             shieldName   : {
-                top   : "_t",
-                right : "_r",
-                bottom: "_b",
-                left  : "_l"
+                top   : "__t",
+                right : "__r",
+                bottom: "__b",
+                left  : "__l"
             }
         };
 
@@ -98,10 +98,10 @@
             },
             removeRestrict: function(){
                 // ドラッグ限界のクラスを消すだけの清掃業者
-                shield.$tp.removeClass(restrictName);
-                shield.$rt.removeClass(restrictName);
-                shield.$bt.removeClass(restrictName);
-                shield.$lt.removeClass(restrictName);
+                shield.$tp.removeClass(map.restrictName);
+                shield.$rt.removeClass(map.restrictName);
+                shield.$bt.removeClass(map.restrictName);
+                shield.$lt.removeClass(map.restrictName);
             }
         };
 
@@ -194,33 +194,33 @@
                 // 上側
                 if(map.start.y > map.max.y + map.extra){
                     map.start.y = map.max.y + map.extra;
-                    shield.$tp.addClass(restrictName);
+                    shield.$tp.addClass(map.restrictName);
                 } else {
-                    shield.$tp.removeClass(restrictName);
+                    shield.$tp.removeClass(map.restrictName);
                 }
 
                 // 右側
                 if(map.start.x < map.min.x - map.extra){
                     map.start.x = map.min.x - map.extra;
-                    shield.$rt.addClass(restrictName);
+                    shield.$rt.addClass(map.restrictName);
                 } else {
-                    shield.$rt.removeClass(restrictName);
+                    shield.$rt.removeClass(map.restrictName);
                 }
 
                 // 下側
                 if(map.start.y < map.min.y - map.extra){
                     map.start.y = map.min.y - map.extra;
-                    shield.$bt.addClass(restrictName);
+                    shield.$bt.addClass(map.restrictName);
                 } else {
-                    shield.$bt.removeClass(restrictName);
+                    shield.$bt.removeClass(map.restrictName);
                 }
 
                 // 左側
                 if(map.start.x > map.max.x + map.extra){
                     map.start.x = map.max.x + map.extra;
-                    shield.$lt.addClass(restrictName);
+                    shield.$lt.addClass(map.restrictName);
                 } else {
-                    shield.$lt.removeClass(restrictName);
+                    shield.$lt.removeClass(map.restrictName);
                 }
             },
             init: function(){
