@@ -1,8 +1,12 @@
 
         var defaults = {
+            crop: {
+                w: 320,
+                h: 320
+            },
             size: {
-                x: 1113,
-                y: 1600
+                w: 1113,
+                h: 1600
             },
             start: {
                 x: -556,
@@ -24,13 +28,13 @@
             extra        : 25,
             bounce       : true,
             restrict     : true,
-            restrictSuffix : "--restrict",
+            restrictName : "__restrict",
             dragmapName: "dragmap",
             shieldName: {
-                top   : "shield__t",
-                right : "shield__r",
-                bottom: "shield__b",
-                left  : "shield__l"
+                top   : "_t",
+                right : "_r",
+                bottom: "_b",
+                left  : "_l"
             }
         };
 
@@ -49,8 +53,8 @@
 
 
         var restrictClass = {
-            top: map.shieldName.top + map.restrictSuffix,
-            right: map.shieldName.right + map.restrictSuffix,
-            bottom: map.shieldName.bottom + map.restrictSuffix,
-            left: map.shieldName.left + map.restrictSuffix,
+            top: map.restrictName,
+            right: map.restrictName,
+            bottom: map.restrictName,
+            left: map.restrictName,
         };

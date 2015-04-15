@@ -1,14 +1,8 @@
 @charset "UTF-8";
 
 #hammer-drag-map {
+  position: relative;
   overflow: hidden;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  margin: auto;
-  width: 320px;
-  height: 320px;
   border: 1px solid black;
   background-color: black;
 }
@@ -29,25 +23,25 @@
   height: 320px;
 }
 
-.shield__t {
+.shield._t {
   top: 0;
   left: 0;
   height: 15px;
 }
 
-.shield__r {
+.shield._r {
   top: 0;
   right: 0;
   width: 15px;
 }
 
-.shield__b {
+.shield._b {
   bottom: 0;
   left: 0;
   height: 15px;
 }
 
-.shield__l {
+.shield._l {
   top: 0;
   left: 0;
   width: 15px;
@@ -57,25 +51,25 @@
  * --restrict のグラデーションは Android のようにドラッグ量に応じて色を濃くしたりはしていません。
  * 再現したい場合は @keyframes animation やドラッグ量に応じた濃さのクラスをそ作ってなんかがんばるなどしてください。
  */
-.shield__t--restrict {
+.shield._t.__restrict {
   background-image: -webkit-gradient(radial, center top, 5, center top, 15,  from(rgba(255,255,255, .75)), to(rgba(255,255,255, 0)));
   background-image: -webkit-radial-gradient(center top, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
   background-image: radial-gradient(center top, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
 }
 
-.shield__r--restrict {
+.shield._r.__restrict {
   background-image: -webkit-gradient(radial, right center, 5, right center, 15,  from(rgba(255,255,255, .75)), to(rgba(255,255,255, 0)));
   background-image: -webkit-radial-gradient(right center, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
   background-image: radial-gradient(right center, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
 }
 
-.shield__b--restrict {
+.shield._b.__restrict {
   background-image: -webkit-gradient(radial, center bottom, 5, center bottom, 15,  from(rgba(255,255,255, .75)), to(rgba(255,255,255, 0)));
   background-image: -webkit-radial-gradient(center bottom, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
   background-image: radial-gradient(center bottom, ellipse farthest-side, rgba(255,255,255, .75), rgba(255,255,255, 0));
 }
 
-.shield__l--restrict {
+.shield._l.__restrict {
   background-image: -webkit-gradient(radial, left center, 5, left center, 15,  from(rgba(255,255,255, .75)), to(rgba(255,255,255, 0)));
   background-image: -webkit-radial-gradient(left center, ellipse farthest-side, rgba(255,255,255, .75), rgba(0,48,0, 0));
   background-image: radial-gradient(left center, ellipse farthest-side, rgba(255,255,255, .75), rgba(0,48,0, 0));

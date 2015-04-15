@@ -1,10 +1,16 @@
 
         var view = {
             setMap: function(){
-                // もし背景画像を JS 側で操作したい場合はここに書くといいかも
+                // クロップエリアのサイズ指定
+                _this.css({
+                    "width" : map.crop.w,
+                    "height": map.crop.h
+                });
+
+                // 地図のサイズ指定
                 _dragmap.css({
-                    "width" : map.size.x,
-                    "height": map.size.y
+                    "width" : map.size.w,
+                    "height": map.size.h
                 });
             },
             translate: function(_pos, _trans){
