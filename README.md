@@ -113,7 +113,7 @@ $("#hammer-drag-map").hdm(myOption);
 
 ## オプションの詳細
 
-<table border="1">
+<table>
     <tr>
         <th>key</th>
         <th>key2</th>
@@ -197,7 +197,7 @@ $("#hammer-drag-map").hdm(myOption);
     </tr>
     <tr>
         <th colspan="2">restrictName</th>
-        <td>限界ドラッグ時に`.shield`に付与するクラス名（string）</td>
+        <td>限界ドラッグ時に.shieldに付与するクラス名（string）</td>
         <td>"_restrict"</td>
     </tr>
     <tr>
@@ -319,3 +319,7 @@ $("#hammer-drag-map").hdm(myOption);
     $("#hammer-drag-map").hdm(myMap);
     $("#anotherMap").hdm(anotherOpt);
 &lt;/script&gt;</code></pre>
+
+## ライセンス
+
+MITライセンスにて公開します。
