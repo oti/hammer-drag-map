@@ -1,2 +1,3 @@
-
-})();
+        return _this;
+    };
+})(jQuery);

@@ -1,3 +1,3 @@
 
-    // 実行！
-    hdm.ctrl.init();
+        // 実行！
+        ctrl.init();

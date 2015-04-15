@@ -10,19 +10,28 @@
 
 <script src="js/lib/jquery-2.1.3.min.js"></script>
 <script src="js/lib/jquery.hammer-full.min.js"></script>
+<script src="js/hammer-drag-map.js"></script>
 </head>
 <body>
 
-<div id="map">
-    <div id="hammer-drag-map">
+<div id="hammer-drag-map">
+    <div class="dragmap">
         <!-- some map icon elements -->
     </div>
-    <div class="shield shield__t"></div>
-    <div class="shield shield__r"></div>
-    <div class="shield shield__b"></div>
-    <div class="shield shield__l"></div>
+    <div class="shield __t"></div>
+    <div class="shield __r"></div>
+    <div class="shield __b"></div>
+    <div class="shield __l"></div>
 </div>
 
-<script src="js/hammer-drag-map.js"></script>
+<script>
+    var myMap = {
+        size: {
+            w: 1113
+        }
+    };
+
+    $("#hammer-drag-map").hdm(myMap);
+</script>
 </body>
 </html>
