@@ -117,113 +117,134 @@ $("#hammer-drag-map").hdm(myOption);
     <tr>
         <th>key</th>
         <th>key2</th>
-        <th>description(type)</th>
-        <th>default</th>
+        <th>description</th>
+        <th>value type</th>
+        <th>default value</th>
     </tr>
     <tr>
         <th rowspan="2">crop</th>
         <th>w</th>
-        <td>クロップエリアの幅px（int）</td>
+        <td>クロップエリアの幅px</td>
+        <td>int</td>
         <td>320</td>
     </tr>
     <tr>
         <th>h</th>
-        <td>クロップエリアの高さpx（int）</td>
+        <td>クロップエリアの高さpx</td>
+        <td>int</td>
         <td>320</td>
     </tr>
     <tr>
         <th rowspan="2">size</th>
         <th>w</th>
-        <td>地図の幅px（int）</td>
+        <td>地図の幅px</td>
+        <td>int</td>
         <td>1600</td>
     </tr>
     <tr>
         <th>h</th>
-        <td>地図の高さpx（int）</td>
+        <td>地図の高さpx</td>
+        <td>int</td>
         <td>1600</td>
     </tr>
     <tr>
         <th rowspan="2">start</th>
         <th>x</th>
-        <td>初期表示時にtranslateさせておくx座標値（int）</td>
+        <td>初期表示時にtranslateさせておくx座標値</td>
+        <td>int</td>
         <td>-800(center of size.x)</td>
     </tr>
     <tr>
         <th>y</th>
-        <td>初期表示時にtranslateさせておくy座標値（int）</td>
+        <td>初期表示時にtranslateさせておくy座標値</td>
+        <td>int</td>
         <td>-800(center of size.y)</td>
     </tr>
     <tr>
         <th rowspan="2">max</th>
         <th>x</th>
-        <td>ドラッグさせたい範囲の左上側のtranslateさせるx座標値（int）</td>
+        <td>ドラッグさせたい範囲の左上側のtranslateさせるx座標値</td>
+        <td>int</td>
         <td>0</td>
     </tr>
     <tr>
         <th>y</th>
-        <td>ドラッグさせたい範囲の左上側のtranslateさせるy座標値（int）</td>
+        <td>ドラッグさせたい範囲の左上側のtranslateさせるy座標値</td>
+        <td>int</td>
         <td>0</td>
     </tr>
     <tr>
         <th rowspan="2">min</th>
         <th>x</th>
-        <td>ドラッグさせたい範囲の右下側のtranslateさせるx座標値（int）</td>
+        <td>ドラッグさせたい範囲の右下側のtranslateさせるx座標値</td>
+        <td>int</td>
         <td>-1280(size.x - crop.x)</td>
     </tr>
     <tr>
         <th>y</th>
-        <td>ドラッグさせたい範囲の右下側のtranslateさせるy座標値（int）</td>
+        <td>ドラッグさせたい範囲の右下側のtranslateさせるy座標値</td>
+        <td>int</td>
         <td>-1280(size.y - crop.y)</td>
     </tr>
     <tr>
         <th colspan="2">transition</th>
-        <td>transitionプロパティの値（string）</td>
+        <td>transitionプロパティの値</td>
+        <td>string</td>
         <td>"transform .075s ease-in-out"</td>
     </tr>
     <tr>
         <th colspan="2">extra</th>
-        <td>オーバードラッグさせるpx数（int）</td>
+        <td>オーバードラッグさせるpx数</td>
+        <td>int</td>
         <td>25</td>
     </tr>
     <tr>
         <th colspan="2">bounce</th>
-        <td>extraが1以上でオーバーラップさせた時にドラッグを自動で戻すかどうか（boolean）</td>
+        <td>extraが1以上でオーバーラップさせた時にドラッグを自動で戻すかどうか</td>
+        <td>boolean</td>
         <td>true</td>
     </tr>
     <tr>
         <th colspan="2">restrict</th>
-        <td>設定した限界までドラッグした時に.shieldに専用クラスを付与するか（boolean）</td>
+        <td>設定した限界までドラッグした時に.shieldに専用クラスを付与するか</td>
+        <td>boolean</td>
         <td>true</td>
     </tr>
     <tr>
         <th colspan="2">restrictName</th>
-        <td>限界ドラッグ時に.shieldに付与するクラス名（string）</td>
+        <td>限界ドラッグ時に.shieldに付与するクラス名</td>
+        <td>string</td>
         <td>"_restrict"</td>
     </tr>
     <tr>
         <th colspan="2">dragmapName</th>
-        <td>ドラッグできる地図を作る要素のクラス名（string）</td>
+        <td>ドラッグできる地図を作る要素のクラス名</td>
+        <td>string</td>
         <td>"dragmap"</td>
     </tr>
     <tr>
         <th rowspan="4">shieldName</th>
         <th>top</th>
-        <td>地図の上辺の触れない部分の要素のクラス名（string）</td>
+        <td>地図の上辺の触れない部分の要素のクラス名</td>
+        <td>string</td>
         <td>"__t"</td>
     </tr>
     <tr>
         <th>right</th>
-        <td>地図の右辺の触れない部分の要素のクラス名（string）</td>
+        <td>地図の右辺の触れない部分の要素のクラス名</td>
+        <td>string</td>
         <td>"__r"</td>
     </tr>
     <tr>
         <th>bottom</th>
-        <td>地図の下辺の触れない部分の要素のクラス名（string）</td>
+        <td>地図の下辺の触れない部分の要素のクラス名</td>
+        <td>string</td>
         <td>"__b"</td>
     </tr>
     <tr>
         <th>left</th>
-        <td>地図の左辺の触れない部分の要素のクラス名（string）</td>
+        <td>地図の左辺の触れない部分の要素のクラス名</td>
+        <td>string</td>
         <td>"__l"</td>
     </tr>
 </table>
