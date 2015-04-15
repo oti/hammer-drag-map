@@ -1,37 +1,25 @@
 (function($) {
-    $.fn.hdm = function(options){
+    $.fn.hdm = function(options){        // デフォルトセッティング
         var defaults = {
             crop: {
                 w: 320,
                 h: 320
             },
             size: {
-                w: 1113,
+                w: 1600,
                 h: 1600
-            },
-            start: {
-                x: -556,
-                y: -800
-            },
-            end: {
-                x: -556,
-                y: -800
             },
             max: {
                 x: 0,
                 y: 0
-            },
-            min: {
-                x: -793,
-                y: -1280
             },
             transition   : "transform .075s ease-in-out",
             extra        : 25,
             bounce       : true,
             restrict     : true,
             restrictName : "__restrict",
-            dragmapName: "dragmap",
-            shieldName: {
+            dragmapName  : "dragmap",
+            shieldName   : {
                 top   : "_t",
                 right : "_r",
                 bottom: "_b",
@@ -39,26 +27,50 @@
             }
         };
 
+        // オプションをマージ
         var map = $.extend(true, {}, defaults, options);
 
+        // startがなかったら設定
+        if(!map.start){
+            map.start = {
+                x: parseInt(map.size.w, 10) / -2,
+                y: parseInt(map.size.h, 10) / -2
+            };
+        }
+
+        // endを作る。startと同値でないとドラッグした時に挙動が変
+        if(!map.end){
+            map.end = {
+                x: map.start.x,
+                y: map.start.y
+            };
+        }
+
+        // minがなかったら算出して設定
+        if(!map.min){
+            map.min = {
+                x: (parseInt(map.size.w, 10) - map.crop.w) * -1,
+                y: (parseInt(map.size.h, 10) - map.crop.h) * -1
+            };
+        }
+
+        console.log(map);
+
+        // 自分をとっとく
         var _this = $(this);
 
+        // ドラッグ要素を設定
         var _dragmap = _this.find("." + map.dragmapName);
 
-        var shield = {
-            $tp:  _this.find("." + map.shieldName.top),
-            $rt:  _this.find("." + map.shieldName.right),
-            $bt:  _this.find("." + map.shieldName.bottom),
-            $lt:  _this.find("." + map.shieldName.left)
-        };
-
-
-        var restrictClass = {
-            top: map.restrictName,
-            right: map.restrictName,
-            bottom: map.restrictName,
-            left: map.restrictName,
-        };
+        // 
+        if(map.shieldName){
+            var shield = {
+                $tp:  _this.find("." + map.shieldName.top),
+                $rt:  _this.find("." + map.shieldName.right),
+                $bt:  _this.find("." + map.shieldName.bottom),
+                $lt:  _this.find("." + map.shieldName.left)
+            };
+        }
 
         var view = {
             setMap: function(){
@@ -86,10 +98,10 @@
             },
             removeRestrict: function(){
                 // ドラッグ限界のクラスを消すだけの清掃業者
-                shield.$tp.removeClass(restrictClass.top);
-                shield.$rt.removeClass(restrictClass.right);
-                shield.$bt.removeClass(restrictClass.bottom);
-                shield.$lt.removeClass(restrictClass.left);
+                shield.$tp.removeClass(restrictName);
+                shield.$rt.removeClass(restrictName);
+                shield.$bt.removeClass(restrictName);
+                shield.$lt.removeClass(restrictName);
             }
         };
 
@@ -182,33 +194,33 @@
                 // 上側
                 if(map.start.y > map.max.y + map.extra){
                     map.start.y = map.max.y + map.extra;
-                    shield.$tp.addClass(restrictClass.top);
+                    shield.$tp.addClass(restrictName);
                 } else {
-                    shield.$tp.removeClass(restrictClass.top);
+                    shield.$tp.removeClass(restrictName);
                 }
 
                 // 右側
                 if(map.start.x < map.min.x - map.extra){
                     map.start.x = map.min.x - map.extra;
-                    shield.$rt.addClass(restrictClass.right);
+                    shield.$rt.addClass(restrictName);
                 } else {
-                    shield.$rt.removeClass(restrictClass.right);
+                    shield.$rt.removeClass(restrictName);
                 }
 
                 // 下側
                 if(map.start.y < map.min.y - map.extra){
                     map.start.y = map.min.y - map.extra;
-                    shield.$bt.addClass(restrictClass.bottom);
+                    shield.$bt.addClass(restrictName);
                 } else {
-                    shield.$bt.removeClass(restrictClass.bottom);
+                    shield.$bt.removeClass(restrictName);
                 }
 
                 // 左側
                 if(map.start.x > map.max.x + map.extra){
                     map.start.x = map.max.x + map.extra;
-                    shield.$lt.addClass(restrictClass.left);
+                    shield.$lt.addClass(restrictName);
                 } else {
-                    shield.$lt.removeClass(restrictClass.left);
+                    shield.$lt.removeClass(restrictName);
                 }
             },
             init: function(){

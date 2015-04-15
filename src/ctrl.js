@@ -88,33 +88,33 @@
                 // 上側
                 if(map.start.y > map.max.y + map.extra){
                     map.start.y = map.max.y + map.extra;
-                    shield.$tp.addClass(restrictClass.top);
+                    shield.$tp.addClass(restrictName);
                 } else {
-                    shield.$tp.removeClass(restrictClass.top);
+                    shield.$tp.removeClass(restrictName);
                 }
 
                 // 右側
                 if(map.start.x < map.min.x - map.extra){
                     map.start.x = map.min.x - map.extra;
-                    shield.$rt.addClass(restrictClass.right);
+                    shield.$rt.addClass(restrictName);
                 } else {
-                    shield.$rt.removeClass(restrictClass.right);
+                    shield.$rt.removeClass(restrictName);
                 }
 
                 // 下側
                 if(map.start.y < map.min.y - map.extra){
                     map.start.y = map.min.y - map.extra;
-                    shield.$bt.addClass(restrictClass.bottom);
+                    shield.$bt.addClass(restrictName);
                 } else {
-                    shield.$bt.removeClass(restrictClass.bottom);
+                    shield.$bt.removeClass(restrictName);
                 }
 
                 // 左側
                 if(map.start.x > map.max.x + map.extra){
                     map.start.x = map.max.x + map.extra;
-                    shield.$lt.addClass(restrictClass.left);
+                    shield.$lt.addClass(restrictName);
                 } else {
-                    shield.$lt.removeClass(restrictClass.left);
+                    shield.$lt.removeClass(restrictName);
                 }
             },
             init: function(){
